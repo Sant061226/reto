@@ -19,7 +19,7 @@ if (!$usuario_id) {
 $titulo = isset($_REQUEST['titulo']) ? mysqli_real_escape_string($conexion, $_REQUEST['titulo']) : '';
 $descripcion = isset($_REQUEST['descripcion']) ? mysqli_real_escape_string($conexion, $_REQUEST['descripcion']) : '';
 if (!empty($titulo) && !empty($descripcion)) {
-    $stmt = $conexion->prepare("INSERT INTO tareas (usuario_id, titulo, descripcion) VALUES (?, ?, ?)");
+    $stmt = $conexion->prepare("insert into tareas (usuario_id, titulo, descripcion) values (?, ?, ?)");
     $stmt->bind_param("iss", $usuario_id, $titulo, $descripcion);
     if ($stmt->execute()) {
         echo "Tarea creada correctamente.";

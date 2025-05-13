@@ -39,6 +39,6 @@
     vericlav($contrasena, $contrasena1);
 ?>
 <br>
-<a href="registro.php">Regresar</a>
+<a href="index.php">Regresar</a>
 </body>
 </html>
