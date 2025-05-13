@@ -9,7 +9,7 @@
     <title>Reto</title>
 </head>
 <body>
-<div class="container"></div>
+<div class="container">
     <div class="row">
         <div class="col formulario">
             <form action="nuevat1.php" method="post">

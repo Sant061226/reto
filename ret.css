@@ -21,10 +21,15 @@
 }
 .text {
     display: flex;
-    justify-content: start;
     align-items: start;
     margin: 0; 
     display: grid;
     place-items: start;
     font-family: Arial, Helvetica, sans-serif;
+}
+table {
+    width: 100%;
+}
+th, td {
+    text-align: center;
 }
