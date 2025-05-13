@@ -12,7 +12,7 @@
 <?php
 $conexion = mysqli_connect("localhost", "root", "", "basereto") 
 or die("Problemas con la conexión");
-$registros = mysqli_query($conexion, "SELECT id FROM tareas") 
+$registros = mysqli_query($conexion, "select id from tareas") 
 or die("Problemas en el select:".mysqli_error($conexion));
 if ($reg = mysqli_fetch_array($registros)) {
     $id = $reg['id'];
@@ -22,7 +22,7 @@ if ($reg = mysqli_fetch_array($registros)) {
 $titulo = mysqli_real_escape_string($conexion, $_REQUEST['titulo']);
 $descripcion = mysqli_real_escape_string($conexion, $_REQUEST['descripcion']);
 if (!empty($titulo) && !empty($descripcion)) {
-    $query = "UPDATE tareas SET titulo = '$titulo', descripcion = '$descripcion' WHERE id = '$id'";
+    $query = "update tareas set titulo = '$titulo', descripcion = '$descripcion' where id = '$id'";
     if (mysqli_query($conexion, $query)) {
         echo "Tarea modificada correctamente.";
     } else {

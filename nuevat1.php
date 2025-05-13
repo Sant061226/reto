@@ -16,8 +16,7 @@ $usuario_id = $_SESSION['usuario_id'] ?? null;
 if (!$usuario_id) {
     die("Error: No hay usuario autenticado.");
 }
-$titulo = isset($_REQUEST['titulo']) ? mysqli_real_escape_string($conexion, $_REQUEST['titulo']) : '';
-$descripcion = isset($_REQUEST['descripcion']) ? mysqli_real_escape_string($conexion, $_REQUEST['descripcion']) : '';
+ 
 if (!empty($titulo) && !empty($descripcion)) {
     $stmt = $conexion->prepare("insert into tareas (usuario_id, titulo, descripcion) values (?, ?, ?)");
     $stmt->bind_param("iss", $usuario_id, $titulo, $descripcion);

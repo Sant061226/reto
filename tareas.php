@@ -3,9 +3,8 @@ session_start();
 $conexion=mysqli_connect("localhost","root","","basereto") or
 die("Problemas con la conexión");
 $usuario_id =$_SESSION['usuario_id'];
-$registros=mysqli_query($conexion, "select * from usuarios as us inner join tareas as tat where tat.usuario_id='$usuario_id'") or
+$registros=mysqli_query($conexion, "select * from usuarios as us inner join tareas as tat on us.id=tat.usuario_id where tat.usuario_id='$usuario_id'") or
 die("Problemas en el select:".mysqli_error($conexion)); 
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -47,7 +46,7 @@ die("Problemas en el select:".mysqli_error($conexion));
                         echo "<td>" . $reg['titulo'] . "</td>";
                         echo "<td>" . $reg['descripcion'] . "</td>";
                         echo "<td>";
-                        echo "<input type='checkbox'>";
+                        echo "<input type='checkbox' onchange='updateStatus(" . $reg['id'] . ", this.checked)' " . ($reg['completada'] == 1 ? "checked" : 0) . ">";
                         echo "<td>
                                 <a href='editar.php?id=" . $reg['id'] . "'>Editar</a>
                             </td>";
