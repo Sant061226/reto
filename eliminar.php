@@ -9,11 +9,11 @@ $tarea_id = isset($_GET['id']) ? $_GET['id'] : null;
 if (!$tarea_id) {
     die("Error: ID de tarea no válido.");
 }
-$consulta = mysqli_query($conexion, "SELECT * FROM tareas WHERE id='$tarea_id' AND usuario_id='$usuario_id'");
+$consulta = mysqli_query($conexion, "select * from tareas where id='$tarea_id' and usuario_id='$usuario_id'");
 if (mysqli_num_rows($consulta) == 0) {
     die("Error: No puedes eliminar esta tarea.");
 }
-$query = "DELETE FROM tareas WHERE id='$tarea_id' AND usuario_id='$usuario_id'";
+$query = "delete from tareas where id='$tarea_id' and usuario_id='$usuario_id'";
 if (mysqli_query($conexion, $query)) {
     echo "Tarea eliminada correctamente.";
     header("Location: tareas.php");

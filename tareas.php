@@ -24,7 +24,7 @@ die("Problemas en el select:".mysqli_error($conexion));
     </div>
     <div class="row text">
         <div class="col">
-            <table class="table table-striped table-bordered extand">
+            <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>Código usuario</th>
@@ -46,9 +46,8 @@ die("Problemas en el select:".mysqli_error($conexion));
                         echo "<td>" . $reg['fecha_creacion'] . "</td>";
                         echo "<td>" . $reg['titulo'] . "</td>";
                         echo "<td>" . $reg['descripcion'] . "</td>";
-                        echo "<td>
-                                <a href='completar.php?id=" . $reg['id'] . "'>Completar</a>
-                            </td>";
+                        echo "<td>";
+                        echo "<input type='checkbox'>";
                         echo "<td>
                                 <a href='editar.php?id=" . $reg['id'] . "'>Editar</a>
                             </td>";
