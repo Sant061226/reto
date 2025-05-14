@@ -1,10 +1,11 @@
 <?php
 session_start();
 $conexion = mysqli_connect("localhost", "root", "", "basereto") or die("Problemas con la conexión");
-$tar_id = intval($_GET['id']);
-$estanuev = intval($_GET['status']);
-mysqli_query($conexion, "update tareas set 1 = '$estanuev' where id = '$tar_id'") or 
+$tatid = intval($_GET['id']);
+$nuev = intval($_GET['status']);
+mysqli_query($conexion, "update tareas set completada = '$nuev' where id = '$tatid'") or 
 die("Error al actualizar: " . mysqli_error($conexion));
 mysqli_close($conexion);
-echo "Estado actualizado correctamente";
+header("Location: tareas.php");
+exit();
 ?>

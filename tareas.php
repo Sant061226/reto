@@ -46,7 +46,13 @@ die("Problemas en el select:".mysqli_error($conexion));
                         echo "<td>" . $reg['titulo'] . "</td>";
                         echo "<td>" . $reg['descripcion'] . "</td>";
                         echo "<td>";
-                        echo "<input type='checkbox' onchange='updateStatus(" . $reg['id'] . ", this.checked)' " . ($reg['completada'] == 1 ? "checked" : 0) . ">";
+                            if ($reg['completada'] == 1) {
+                                echo "<a href='completar.php?id=" . $reg['id'] . "&status=0'>Marcar como pendiente</a>";
+                            } 
+                            else {
+                                echo "<a href='completar.php?id=" . $reg['id'] . "&status=1'>Completar</a>";
+                            }
+                        echo "</td>";
                         echo "<td>
                                 <a href='editar.php?id=" . $reg['id'] . "'>Editar</a>
                             </td>";
