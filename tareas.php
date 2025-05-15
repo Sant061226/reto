@@ -2,9 +2,14 @@
 session_start();
 $conexion=mysqli_connect("localhost","root","","basereto") or
 die("Problemas con la conexión");
-$usuario_id =$_SESSION['usuario_id'];
-$registros=mysqli_query($conexion, "select * from usuarios as us inner join tareas as tat on us.id=tat.usuario_id where tat.usuario_id='$usuario_id'") or
+if (!isset($_SESSION['usuario_id'])) {
+    die("Error, debe iniciar sesión para ver las tareas");
+}
+else {
+    $usuario_id =$_SESSION['usuario_id'];
+    $registros=mysqli_query($conexion, "select * from usuarios as us inner join tareas as tat on us.id=tat.usuario_id where tat.usuario_id='$usuario_id'") or
 die("Problemas en el select:".mysqli_error($conexion)); 
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
